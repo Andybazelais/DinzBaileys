@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PÉPITE JACMEL OFFICIEL 🌴</title>
+  <meta name="description" content="Chaîne officielle des pépites de Jacmel — Beauté · Ambiance · Fun · Interactions"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="cursor-glow" id="cursor-glow"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__logo">
+      <div class="logo-shield">PJ</div>
+      <span class="logo-text">PÉPITE <em>JACMEL</em></span>
+    </div>
+    <div class="navbar__links">
+      <a href="#accueil" class="nav-link active">Accueil</a>
+      <a href="#galerie" class="nav-link">Galerie</a>
+      <a href="#match" class="nav-link">Match Beauté</a>
+      <a href="#rejoindre" class="nav-link">Rejoindre</a>
+    </div>
+    <a href="https://whatsapp.com/channel/0029Vb8CmyVGufInuMu9D10L" target="_blank" class="navbar__cta">
+      Rejoindre 💋
+    </a>
+    <button class="navbar__burger" id="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#accueil"   onclick="toggleMenu()">Accueil</a>
+    <a href="#galerie"   onclick="toggleMenu()">Galerie</a>
+    <a href="#match"     onclick="toggleMenu()">Match Beauté</a>
+    <a href="#rejoindre" onclick="toggleMenu()">Rejoindre</a>
+    <a href="https://whatsapp.com/channel/0029Vb8CmyVGufInuMu9D10L" target="_blank" class="mobile-cta">
+      Rejoindre la Famille 💋
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <section id="accueil" class="hero">
+    <div class="hero__slideshow" id="hero-slideshow">
+      <div class="hero__slide active" style="background-image:url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1600&q=80')"></div>
+      <div class="hero__slide" style="background-image:url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1600&q=80')"></div>
+      <div class="hero__slide" style="background-image:url('https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=1600&q=80')"></div>
+      <div class="hero__slide" style="background-image:url('https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=1600&q=80')"></div>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__grain"></div>
+    <div class="petals" id="petals"></div>
+
+    <div class="hero__content">
+      <div class="hero__badge">
+        <span class="badge__pulse"></span>
+        ✨ Chaîne Officielle · Jacmel, Haïti
+      </div>
+
+      <div class="hero__logo-big">
+        <div class="logo-shield-big"><span>PJ</span></div>
+      </div>
+
+      <h1 class="hero__title">
+        <span class="title__top">😻🌸 PÉPITE</span>
+        <span class="title__main">JACMEL</span>
+        <span class="title__sub">OFFICIEL ❤️📌</span>
+      </h1>
+
+      <p class="hero__tagline">Beauté · Ambiance · Fun · Interactions</p>
+
+      <div class="hero__stats">
+        <div class="stat">
+          <span class="stat__num" data-target="45">0</span>
+          <span class="stat__label">Followers</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num" data-target="100">0</span>
+          <span class="stat__label">% Pépites</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num" data-target="1">0</span>
+          <span class="stat__label">Famille 🔥</span>
+        </div>
+      </div>
+
+      <div class="hero__actions">
+        <a href="https://whatsapp.com/channel/0029Vb8CmyVGufInuMu9D10L" target="_blank" class="btn-primary">
+          <span>💋</span> Rejoindre la Famille
+        </a>
+        <a href="#galerie" class="btn-secondary">
+          <span>🌸</span> Voir les Pépites
+        </a>
+      </div>
+
+      <div class="hero__scroll-hint">
+        <div class="scroll-arrow"></div>
+        <span>Scroll</span>
+      </div>
+    </div>
+
+    <div class="hero__dots" id="hero-dots"></div>
+  </section>
+
+  <!-- TICKER STRIP -->
+  <section class="about-strip">
+    <div class="strip__ticker">
+      <div class="ticker__track">
+        <span>✨ Chaîne officielle des pépites de Jacmel 😻🌸</span>
+        <span>❤️ Rejoins la famille des plus belles pépites</span>
+        <span>📸 Match beauté · Ambiance · Fun · Interactions</span>
+        <span>🎉 Vin'n mezire beauté nou ansanm 🥺❤️📌</span>
+        <span>✨ Chaîne officielle des pépites de Jacmel 😻🌸</span>
+        <span>❤️ Rejoins la famille des plus belles pépites</span>
+        <span>📸 Match beauté · Ambiance · Fun · Interactions</span>
+        <span>🎉 Vin'n mezire beauté nou ansanm 🥺❤️📌</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie" class="galerie">
+    <div class="section-header">
+      <span class="section-tag">👑 La Famille</span>
+      <h2 class="section-title">Les <em>Pépites</em></h2>
+      <p class="section-sub">Les plus belles de Jacmel réunies en un seul endroit</p>
+    </div>
+    <div class="galerie__filters">
+      <button class="filter-btn active" onclick="filterGalerie(this,'all')">Toutes</button>
+      <button class="filter-btn" onclick="filterGalerie(this,'beaute')">Beauté 💄</button>
+      <button class="filter-btn" onclick="filterGalerie(this,'ambiance')">Ambiance 🌴</button>
+      <button class="filter-btn" onclick="filterGalerie(this,'fun')">Fun 🎉</button>
+    </div>
+    <div class="galerie__grid" id="galerie-grid"></div>
+    <div class="galerie__more">
+      <a href="https://whatsapp.com/channel/0029Vb8CmyVGufInuMu9D10L" target="_blank" class="btn-outline">
+        Voir toutes les pépites sur la chaîne 🔗
+      </a>
+    </div>
+  </section>
+
+  <!-- MATCH BEAUTÉ -->
+  <section id="match" class="match-section">
+    <div class="match-section__bg"></div>
+    <div class="match-section__content">
+      <div class="section-header">
+        <span class="section-tag">🏆 Événement</span>
+        <h2 class="section-title">Match <em>Beauté</em></h2>
+        <p class="section-sub">Vote pour ta pépite préférée — résultat en temps réel !</p>
+      </div>
+      <div class="match-arena" id="match-arena">
+        <div class="match-card" id="match-card-a">
+          <div class="match-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80" alt="Pépite A" class="match-card__img"/>
+            <div class="match-card__crown">👑</div>
+          </div>
+          <div class="match-card__info">
+            <h3 class="match-card__name">Pépite Mystère A</h3>
+            <span class="match-card__loc">📍 Jacmel</span>
+          </div>
+          <div class="match-card__votes" id="votes-a">0 votes</div>
+          <button class="match-vote-btn" id="btn-vote-a" onclick="vote('a')">❤️ Voter</button>
+          <div class="match-progress">
+            <div class="match-progress__bar match-progress__bar--a" id="bar-a" style="width:50%"></div>
+          </div>
+        </div>
+
+        <div class="match-vs">
+          <div class="vs-circle">VS</div>
+          <div class="vs-sparks">⚡</div>
+        </div>
+
+        <div class="match-card" id="match-card-b">
+          <div class="match-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80" alt="Pépite B" class="match-card__img"/>
+            <div class="match-card__crown" style="opacity:0">👑</div>
+          </div>
+          <div class="match-card__info">
+            <h3 class="match-card__name">Pépite Mystère B</h3>
+            <span class="match-card__loc">📍 Jacmel</span>
+          </div>
+          <div class="match-card__votes" id="votes-b">0 votes</div>
+          <button class="match-vote-btn match-vote-btn--b" id="btn-vote-b" onclick="vote('b')">❤️ Voter</button>
+          <div class="match-progress">
+            <div class="match-progress__bar match-progress__bar--b" id="bar-b" style="width:50%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="match-cta-wrap">
+        <p class="match-note">🔥 Rejoins la chaîne pour voir les vrais matchs avec les vraies pépites !</p>
+        <a href="https://whatsapp.com/channel/0029Vb8CmyVGufInuMu9D10L" target="_blank" class="btn-primary">
+          Voir les matchs complets 🏆
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REJOINDRE -->
+  <section id="rejoindre" class="rejoindre">
+    <div class="rejoindre__bg"></div>
+    <div class="rejoindre__content">
+      <div class="section-header">
+        <span class="section-tag">🌴 Andy Swift LLC</span>
+        <h2 class="section-title">Fais partie de la <em>Famille</em></h2>
+        <p class="section-sub">Rejoins des centaines de pépites et amoureux de Jacmel</p>
+      </div>
+
+      <div class="social-grid">
+        <a href="https://whatsapp.com/channel/0029Vb8CmyVGufInuMu9D10L" target="_blank" class="social-card social-card--whatsapp">
+          <div class="social-card__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <div class="social-card__info">
+            <span class="social-card__name">WhatsApp Channel</span>
+            <span class="social-card__handle">Pépite Jacmel Officiel</span>
+          </div>
+          <span class="social-card__arrow">→</span>
+        </a>
+
+        <a href="https://www.instagram.com/andyyswiftt?igsh=amY5bmx0bjd6d2V1" target="_blank" class="social-card social-card--instagram">
+          <div class="social-card__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </div>
+          <div class="social-card__info">
+            <span class="social-card__name">Instagram</span>
+            <span class="social-card__handle">@andyyswiftt</span>
+          </div>
+          <span class="social-card__arrow">→</span>
+        </a>
+
+        <a href="https://www.tiktok.com/@anboy._077" target="_blank" class="social-card social-card--tiktok">
+          <div class="social-card__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.15 8.15 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>
+          </div>
+          <div class="social-card__info">
+            <span class="social-card__name">TikTok</span>
+            <span class="social-card__handle">@anboy._077</span>
+          </div>
+          <span class="social-card__arrow">→</span>
+        </a>
+
+        <a href="mailto:andybazelais380@gmail.com" class="social-card social-card--email">
+          <div class="social-card__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div class="social-card__info">
+            <span class="social-card__name">Email · Andy Swift LLC</span>
+            <span class="social-card__handle">andybazelais380@gmail.com</span>
+          </div>
+          <span class="social-card__arrow">→</span>
+        </a>
+
+        <a href="https://wa.me/50943256619" target="_blank" class="social-card social-card--phone">
+          <div class="social-card__icon" style="font-size:1.6rem">📞</div>
+          <div class="social-card__info">
+            <span class="social-card__name">WhatsApp Direct</span>
+            <span class="social-card__handle">+509 4325-6619</span>
+          </div>
+          <span class="social-card__arrow">→</span>
+        </a>
+      </div>
+
+      <div class="join-hero">
+        <div class="join-hero__glow"></div>
+        <a href="https://whatsapp.com/channel/0029Vb8CmyVGufInuMu9D10L" target="_blank" class="join-hero__btn">
+          <span class="join-hero__icon">💋</span>
+          <div class="join-hero__text">
+            <strong>Rejoindre la Chaîne</strong>
+            <small>PÉPITE JACMEL OFFICIEL</small>
+          </div>
+          <span class="join-hero__arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="logo-shield">PJ</div>
+        <div>
+          <div class="logo-text" style="font-size:1.2rem">PÉPITE <em>JACMEL</em></div>
+          <div style="font-size:0.75rem;color:#888;margin-top:2px">by ᴀɴᴅʏ sᴡɪғᴛᴛ ʟʟᴄ</div>
+        </div>
+      </div>
+      <div class="footer__links">
+        <a href="#accueil">Accueil</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#match">Match Beauté</a>
+        <a href="#rejoindre">Contact</a>
+      </div>
+      <div class="footer__socials">
+        <a href="https://whatsapp.com/channel/0029Vb8CmyVGufInuMu9D10L" target="_blank" class="footer-social">💬</a>
+        <a href="https://www.instagram.com/andyyswiftt?igsh=amY5bmx0bjd6d2V1" target="_blank" class="footer-social">📸</a>
+        <a href="https://www.tiktok.com/@anboy._077" target="_blank" class="footer-social">🎵</a>
+        <a href="mailto:andybazelais380@gmail.com" class="footer-social">📧</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 <strong>PÉPITE JACMEL OFFICIEL</strong> · ᴀɴᴅʏ sᴡɪғᴛᴛ ʟʟᴄ · Jacmel, Haïti 🌴</p>
+      <p style="margin-top:6px;font-size:0.72rem;color:#555">Créée le 20/05/2026 · Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

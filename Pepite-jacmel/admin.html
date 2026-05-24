@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin — Pépite Jacmel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="admin.css"/>
+</head>
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <div class="login-screen" id="login-screen">
+    <div class="login-box">
+      <div class="login-logo">
+        <div class="logo-shield">PJ</div>
+        <div>
+          <div class="logo-text">PÉPITE <em>JACMEL</em></div>
+          <div class="login-sub">Panneau d'Administration</div>
+        </div>
+      </div>
+      <div class="login-form">
+        <label class="field-label">🔑 Mot de passe</label>
+        <div class="pw-wrap">
+          <input type="password" id="pw-input" class="field-input" placeholder="Entrez votre mot de passe..." onkeydown="if(event.key==='Enter')doLogin()"/>
+          <button class="pw-eye" onclick="togglePw()" id="pw-eye">👁</button>
+        </div>
+        <button class="btn-login" onclick="doLogin()">Accéder au panneau →</button>
+        <div class="login-error" id="login-error">❌ Mot de passe incorrect</div>
+      </div>
+      <a href="index.html" class="back-link">← Retour au site</a>
+    </div>
+  </div>
+
+  <!-- ADMIN PANEL -->
+  <div class="admin-panel" id="admin-panel" style="display:none">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar__top">
+        <div class="sidebar__logo">
+          <div class="logo-shield">PJ</div>
+          <span class="logo-text" style="font-size:1rem">ADMIN</span>
+        </div>
+        <button class="sidebar__close" onclick="toggleSidebar()">✕</button>
+      </div>
+      <nav class="sidebar__nav">
+        <button class="s-nav-btn active" onclick="showTab('galerie', this)">
+          <span>🖼️</span> Galerie Pépites
+        </button>
+        <button class="s-nav-btn" onclick="showTab('match', this)">
+          <span>🏆</span> Match Beauté
+        </button>
+        <button class="s-nav-btn" onclick="showTab('hero', this)">
+          <span>🌟</span> Hero Slider
+        </button>
+        <button class="s-nav-btn" onclick="showTab('stats', this)">
+          <span>📊</span> Statistiques
+        </button>
+      </nav>
+      <div class="sidebar__footer">
+        <a href="index.html" target="_blank" class="btn-view-site">👁 Voir le site</a>
+        <button class="btn-logout" onclick="doLogout()">🚪 Déconnexion</button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+
+      <!-- TOP BAR -->
+      <header class="admin-topbar">
+        <button class="topbar__burger" onclick="toggleSidebar()">☰</button>
+        <div class="topbar__title" id="topbar-title">🖼️ Galerie Pépites</div>
+        <div class="topbar__user">
+          <div class="topbar__avatar">PJ</div>
+          <span>Andy Swift LLC</span>
+        </div>
+      </header>
+
+      <!-- ══ TAB: GALERIE ══ -->
+      <section class="tab-content active" id="tab-galerie">
+
+        <div class="admin-card">
+          <div class="admin-card__header">
+            <h2>➕ Ajouter une Pépite</h2>
+            <span class="badge-count" id="total-count">0 pépites</span>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="field-label">Nom de la Pépite *</label>
+              <input type="text" id="add-name" class="field-input" placeholder="Ex: Pépite Soleil"/>
+            </div>
+            <div class="form-group">
+              <label class="field-label">Localité *</label>
+              <input type="text" id="add-loc" class="field-input" placeholder="Ex: Jacmel Centre"/>
+            </div>
+            <div class="form-group">
+              <label class="field-label">Catégorie *</label>
+              <select id="add-cat" class="field-input field-select">
+                <option value="beaute">💄 Beauté</option>
+                <option value="ambiance">🌴 Ambiance</option>
+                <option value="fun">🎉 Fun</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="field-label">Photo *</label>
+              <div class="upload-zone" id="upload-zone" onclick="document.getElementById('add-img').click()">
+                <input type="file" id="add-img" accept="image/*" style="display:none" onchange="previewImg(this)"/>
+                <div class="upload-zone__inner" id="upload-inner">
+                  <span class="upload-icon">📸</span>
+                  <span>Clique pour choisir une photo</span>
+                  <small>JPG, PNG, WEBP — max 5MB</small>
+                </div>
+                <img id="img-preview" class="img-preview" style="display:none"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn-add" onclick="addPepite()">➕ Ajouter la Pépite</button>
+            <button class="btn-clear-form" onclick="clearForm()">🗑 Effacer</button>
+          </div>
+        </div>
+
+        <!-- CURRENT PEPITES LIST -->
+        <div class="admin-card" style="margin-top:24px">
+          <div class="admin-card__header">
+            <h2>📋 Pépites actuelles</h2>
+            <div class="header-actions">
+              <input type="text" class="search-mini" id="search-admin" placeholder="🔍 Rechercher..." oninput="filterAdmin(this.value)"/>
+              <button class="btn-danger-sm" onclick="clearAllPepites()">🗑 Tout effacer</button>
+            </div>
+          </div>
+          <div class="pepites-list" id="pepites-list">
+            <div class="empty-state" id="empty-state">
+              <span>🌸</span>
+              <p>Aucune pépite pour l'instant.<br/>Ajoutes-en une ci-dessus !</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ══ TAB: MATCH BEAUTÉ ══ -->
+      <section class="tab-content" id="tab-match">
+        <div class="admin-card">
+          <div class="admin-card__header">
+            <h2>🏆 Configurer le Match Beauté</h2>
+          </div>
+
+          <div class="match-config">
+            <!-- Pépite A -->
+            <div class="match-config__side">
+              <div class="match-config__label">Pépite A (Rose)</div>
+              <div class="upload-zone" onclick="document.getElementById('match-img-a').click()">
+                <input type="file" id="match-img-a" accept="image/*" style="display:none" onchange="previewMatchImg(this,'a')"/>
+                <div id="match-upload-inner-a" class="upload-zone__inner">
+                  <span class="upload-icon">📸</span>
+                  <span>Photo Pépite A</span>
+                </div>
+                <img id="match-preview-a" class="img-preview" style="display:none"/>
+              </div>
+              <input type="text" id="match-name-a" class="field-input" placeholder="Nom Pépite A" style="margin-top:12px"/>
+              <input type="text" id="match-loc-a"  class="field-input" placeholder="Localité A"   style="margin-top:8px"/>
+            </div>
+
+            <div class="match-config__vs">VS</div>
+
+            <!-- Pépite B -->
+            <div class="match-config__side">
+              <div class="match-config__label">Pépite B (Or)</div>
+              <div class="upload-zone" onclick="document.getElementById('match-img-b').click()">
+                <input type="file" id="match-img-b" accept="image/*" style="display:none" onchange="previewMatchImg(this,'b')"/>
+                <div id="match-upload-inner-b" class="upload-zone__inner">
+                  <span class="upload-icon">📸</span>
+                  <span>Photo Pépite B</span>
+                </div>
+                <img id="match-preview-b" class="img-preview" style="display:none"/>
+              </div>
+              <input type="text" id="match-name-b" class="field-input" placeholder="Nom Pépite B" style="margin-top:12px"/>
+              <input type="text" id="match-loc-b"  class="field-input" placeholder="Localité B"   style="margin-top:8px"/>
+            </div>
+          </div>
+
+          <div class="match-stats-bar" id="match-stats-bar">
+            <div class="match-stats-info">
+              <span id="ms-votes-a">0 votes A</span>
+              <div class="ms-bar"><div class="ms-bar__fill--a" id="ms-bar-a" style="width:50%"></div></div>
+              <div class="ms-bar ms-bar--b"><div class="ms-bar__fill--b" id="ms-bar-b" style="width:50%"></div></div>
+              <span id="ms-votes-b">0 votes B</span>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn-add" onclick="saveMatch()">💾 Sauvegarder le Match</button>
+            <button class="btn-danger-sm" onclick="resetVotes()" style="padding:12px 20px">🔄 Réinitialiser les votes</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ TAB: HERO SLIDER ══ -->
+      <section class="tab-content" id="tab-hero">
+        <div class="admin-card">
+          <div class="admin-card__header">
+            <h2>🌟 Photos du Hero Slider</h2>
+            <span class="badge-count" id="hero-count">0 / 4 slides</span>
+          </div>
+          <p class="admin-hint">Ces photos s'affichent en diaporama sur la page d'accueil.</p>
+
+          <div class="hero-slides-grid" id="hero-slides-grid"></div>
+
+          <div class="upload-zone" onclick="document.getElementById('hero-img-input').click()" style="margin-top:20px">
+            <input type="file" id="hero-img-input" accept="image/*" style="display:none" onchange="addHeroSlide(this)"/>
+            <div class="upload-zone__inner">
+              <span class="upload-icon">🌅</span>
+              <span>Ajouter une slide au Hero</span>
+              <small>Recommandé : format paysage 1600×900</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ TAB: STATS ══ -->
+      <section class="tab-content" id="tab-stats">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-card__icon">🌸</div>
+            <div class="stat-card__num" id="s-total-pepites">0</div>
+            <div class="stat-card__label">Pépites dans la galerie</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__icon">❤️</div>
+            <div class="stat-card__num" id="s-total-votes">0</div>
+            <div class="stat-card__label">Votes au total</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__icon">🏆</div>
+            <div class="stat-card__num" id="s-winner">—</div>
+            <div class="stat-card__label">Gagnante actuelle</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__icon">🌅</div>
+            <div class="stat-card__num" id="s-slides">0</div>
+            <div class="stat-card__label">Slides Hero</div>
+          </div>
+        </div>
+
+        <div class="admin-card" style="margin-top:24px">
+          <div class="admin-card__header"><h2>📊 Votes par Catégorie</h2></div>
+          <div class="cat-stats" id="cat-stats"></div>
+        </div>
+
+        <div class="admin-card" style="margin-top:24px">
+          <div class="admin-card__header"><h2>⚠️ Zone Dangereuse</h2></div>
+          <p class="admin-hint" style="margin-bottom:16px">Ces actions sont irréversibles.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <button class="btn-danger" onclick="resetAllData()">🗑️ Effacer TOUTES les données</button>
+            <button class="btn-danger" onclick="resetVotes()" style="background:rgba(201,168,76,0.15);border-color:rgba(201,168,76,0.4);color:#C9A84C">🔄 Reset votes seulement</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- EDIT MODAL -->
+  <div class="modal-overlay" id="edit-modal" onclick="closeEditModal(event)">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>✏️ Modifier la Pépite</h3>
+        <button onclick="document.getElementById('edit-modal').classList.remove('active')">✕</button>
+      </div>
+      <div class="form-group"><label class="field-label">Nom</label><input type="text" id="edit-name" class="field-input"/></div>
+      <div class="form-group" style="margin-top:12px"><label class="field-label">Localité</label><input type="text" id="edit-loc" class="field-input"/></div>
+      <div class="form-group" style="margin-top:12px">
+        <label class="field-label">Catégorie</label>
+        <select id="edit-cat" class="field-input field-select">
+          <option value="beaute">💄 Beauté</option>
+          <option value="ambiance">🌴 Ambiance</option>
+          <option value="fun">🎉 Fun</option>
+        </select>
+      </div>
+      <div class="form-group" style="margin-top:12px">
+        <label class="field-label">Changer la photo (optionnel)</label>
+        <div class="upload-zone" onclick="document.getElementById('edit-img').click()" style="height:120px">
+          <input type="file" id="edit-img" accept="image/*" style="display:none" onchange="previewEditImg(this)"/>
+          <div id="edit-upload-inner" class="upload-zone__inner">
+            <span>📸 Nouvelle photo</span>
+          </div>
+          <img id="edit-img-preview" class="img-preview" style="display:none"/>
+        </div>
+      </div>
+      <input type="hidden" id="edit-id"/>
+      <div class="form-actions" style="margin-top:20px">
+        <button class="btn-add" onclick="saveEdit()">💾 Sauvegarder</button>
+        <button class="btn-clear-form" onclick="document.getElementById('edit-modal').classList.remove('active')">Annuler</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="admin-toast"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
